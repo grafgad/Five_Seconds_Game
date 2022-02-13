@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fivesecondsgame.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity: AppCompatActivity() {
