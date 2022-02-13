@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Five Seconds Game</string>
+    <string name="timerViewText"></string>
+    <string name="questionViewText">Question</string>
+    <string name="button">Start</string>
+    <string name="buttonTextNext">Next</string>
+    <string name="buttonTextStart">Start</string>
+</resources>
