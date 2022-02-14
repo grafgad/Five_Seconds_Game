@@ -1,6 +1,7 @@
 package com.example.fivesecondsgame.presentation.main
 
 import com.example.fivesecondsgame.data.repositories.QuestionRepository
+import com.example.fivesecondsgame.presentation.MainFragment
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -11,8 +12,8 @@ class MainPresenter : CoroutineScope {
     private val repository = QuestionRepository()
     private var questionNumber = 0
 
-    fun bind(activity: MainActivity) {
-        this.view = activity
+    fun bind(fragment: MainFragment) {
+        this.view = fragment
     }
 
     fun unbind() {

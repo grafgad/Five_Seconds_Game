@@ -5,4 +5,7 @@
     <string name="button">Start</string>
     <string name="buttonTextNext">Next</string>
     <string name="buttonTextStart">Start</string>
+    <string name="hello_blank_fragment">Введите имена игроков</string>
+    <string name="gameRules">1. У Вас есть 2 секунды, чтобы прочитать вопрос, и 5 секунд для ответа. \n2. Выберите количество игроков. \n3. Нажмите \'Играть\' чтобы начать игру.</string>
+    <string name="bottom_sheet_header_text">Правила игры</string>
 </resources>
