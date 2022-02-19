@@ -28,6 +28,4 @@ abstract class BaseFragment <VB : ViewBinding>: Fragment() {
     }
 
     abstract fun getViewBinding(container: ViewGroup?): VB
-
-
 }

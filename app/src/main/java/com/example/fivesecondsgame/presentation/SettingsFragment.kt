@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.fivesecondsgame.R
 import com.example.fivesecondsgame.databinding.FragmentSettingsBinding
+import com.example.fivesecondsgame.presentation.main.MainFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
@@ -35,5 +36,4 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>() {
     companion object {
         fun newInstance() = SettingsFragment()
     }
-
 }
