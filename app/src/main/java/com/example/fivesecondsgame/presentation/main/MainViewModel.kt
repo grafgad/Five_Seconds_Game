@@ -4,17 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.fivesecondsgame.data.repositories.QuestionRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlin.coroutines.CoroutineContext
 
-class MainViewModel : ViewModel(), CoroutineScope {
+class MainViewModel : ViewModel(), CoroutineScope  {
 
     override val coroutineContext: CoroutineContext = Dispatchers.IO
     private val repository = QuestionRepository()
     private var questionNumber = 0
+    private var startQuestionJob: Job? = null
 
     private val _isTimerVisible = MutableLiveData(false)
     val isTimerVisible: LiveData<Boolean> = _isTimerVisible
@@ -26,10 +27,13 @@ class MainViewModel : ViewModel(), CoroutineScope {
     val seconds: LiveData<String> = _seconds
 
     fun onButtonClicked() {
-        launch {
+        startQuestionJob?.cancel()
+        startQuestionJob = launch {
             _isTimerVisible.postValue(true)
-            val questions = repository.readQuestions()
-            _currentQuestion.postValue(questions[questionNumber % questions.size])
+            val questions = repository.myQuestionList()
+            val questionEntity = questions[questionNumber % questions.size]
+            _currentQuestion.postValue(questionEntity.question)
+            _seconds.postValue("5")
             delay(2000)
             for (seconds in 5 downTo 0) {
                 _seconds.postValue(seconds.toString())

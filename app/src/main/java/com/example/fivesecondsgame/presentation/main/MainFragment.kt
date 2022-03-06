@@ -3,6 +3,7 @@ package com.example.fivesecondsgame.presentation.main
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.fivesecondsgame.databinding.FragmentMainBinding
 import com.example.fivesecondsgame.presentation.BaseFragment
@@ -17,9 +18,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         viewModel.isTimerVisible.observe(viewLifecycleOwner, ::updateTimerVisibility)
         viewModel.currentQuestion.observe(viewLifecycleOwner, ::showQuestion)
+//        viewModel.currentQuestion.observe(viewLifecycleOwner, Observer { showQuestion(it) })
         viewModel.seconds.observe(viewLifecycleOwner, ::timer)
-        binding.progressBar.max = 5
 
+        binding.progressBar.max = 5
         binding.questionButton.setOnClickListener {
             viewModel.onButtonClicked()
         }
